@@ -14,14 +14,16 @@ Summary: Functions for obtaining the density, random deviates  and maximum likel
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-poilog-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-poilog-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-poilog-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-poilog-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-poilog-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-poilog-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-poilog-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-poilog-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-poilog-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-poilog-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-poilog-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-poilog-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-poilog/badges/version.svg)](https://anaconda.org/conda-forge/r-poilog)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-poilog/badges/downloads.svg)](https://anaconda.org/conda-forge/r-poilog)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--poilog-green.svg)](https://anaconda.org/conda-forge/r-poilog) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-poilog.svg)](https://anaconda.org/conda-forge/r-poilog) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-poilog.svg)](https://anaconda.org/conda-forge/r-poilog) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-poilog.svg)](https://anaconda.org/conda-forge/r-poilog) |
 
 Installing r-poilog
 ===================
