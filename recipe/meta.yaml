@@ -1,5 +1,4 @@
 {% set version = '0.4' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,34 +9,36 @@ package:
 source:
   fn: poilog_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/poilog_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/poilog/poilog_{{ version }}.tar.gz
-
+    - {{ cran_mirror }}/src/contrib/poilog_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/poilog/poilog_{{ version }}.tar.gz
   sha256: fabddeae342f477b39220e23c98e3db568581545f1a01d6f5b99d85c5a1ee02d
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 2
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('poilog')"  # [not win]
+    - $R -e "library('poilog')"           # [not win]
     - "\"%R%\" -e \"library('poilog')\""  # [win]
 
 about:
@@ -48,12 +49,15 @@ about:
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
   license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+
 extra:
-   recipe-maintainers:
+  recipe-maintainers:
     - MathiasHaudgaard
     - FrodePedersen
     - ArneKr
-    - Johanneskoester
-    - Bgruening
-    - Daler
-    - Jdblischak
+    - johanneskoester
+    - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
