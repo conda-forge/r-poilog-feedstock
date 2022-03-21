@@ -7,29 +7,28 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: poilog_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/poilog_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/poilog/poilog_{{ version }}.tar.gz
   sha256: b126416e50d87c758fc058d05c6c4c9fd74fa1a6850da66acc7faf50c415389f
 
 build:
-  merge_build_host: true  # [win]
+  merge_build_host: True  # [win]
   number: 0
-  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
   run:
@@ -43,10 +42,11 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=poilog
-  license: GPL-3
+  license: GPL-3.0-only
   summary: Functions for obtaining the density, random deviates  and maximum likelihood estimates of the Poisson lognormal  distribution and the bivariate Poisson lognormal distribution.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
