@@ -3,7 +3,7 @@ About r-poilog
 
 Home: https://CRAN.R-project.org/package=poilog
 
-Package license: GPL-3
+Package license: GPL-3.0-only
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-poilog-feedstock/blob/main/LICENSE.txt)
 
